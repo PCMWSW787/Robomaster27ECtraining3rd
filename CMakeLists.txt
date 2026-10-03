@@ -34,7 +34,13 @@ enable_language(C ASM)
 # Create an executable object type
 add_executable(${CMAKE_PROJECT_NAME}
         UserCode/callback.cpp
-        UserCode/callback.h)
+        UserCode/callback.h
+        UserCode/can_user.c
+        UserCode/can_user.h
+        UserCode/Motor.cpp
+        UserCode/Motor.hpp
+        UserCode/Motor.hpp
+)
 
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)
@@ -52,6 +58,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined include paths
+        UserCode
 )
 
 # Add project symbols (macros)
